@@ -1,0 +1,26 @@
+[embed] local provider: 1 text(s) embedded on this machine, no outbound call
+[retrieve] unit=U2B issue='Kitchen sink leak'
+[retrieve] timeline (date order, filtered by unit + issue):
+  2026-10-03  R201  reported  Tenant reported water pooling below the sink
+  2026-10-05  R202  closed    Contractor replaced the drain seal
+  2026-10-20  R203  reopened  Tenant reported water pooling in the same place
+[retrieve] procedure (vector search over procedure sections only):
+  RP01  score=0.284  Repeat leaks: If the same leak is reported in the same unit within 30 days of a closed repair, reopen the case and request a follow-up inspection.
+[local] tenant contact for U2B: Leah Morgan (kept local, not sent)
+[generate] --leak-test: tenant email deliberately injected into this ONE generation request
+
+[outbound summary]
+  llm:generate         dry_run=False leak_test=True bytes=1305 pii_scan=['email:U2B', 'name:U2B']
+
+===== ANSWER =====
+**History:**
+- **2026-10-03:** The tenant reported water pooling below the kitchen sink [R201].
+- **2026-10-05:** A contractor replaced the drain seal, and the case was closed [R202].
+- **2026-10-20:** The tenant reported water pooling in the same place, and the case was reopened [R203].
+
+So yes, this leak was reported before. The repeat report came 15 days after the repair was closed (2026-10-05 to 2026-10-20) [R202] [R203].
+
+**Required follow-up:**
+The repeat report came within 30 days of a closed repair, so the procedure says to reopen the case and request a follow-up inspection [RP01]. The case has already been reopened [R203]. The remaining step is to **request a follow-up inspection** [RP01].
+==================
+[check] cited=['R201', 'R202', 'R203', 'RP01'] unresolved=none missing_expected=none forbidden_present=none mentions_inspection=True -> PASS

@@ -1,0 +1,17 @@
+# Secrets - never commit
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Local environment and generated data
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.store/
+outbound_log.jsonl
+
+# Machine-specific config and raw audit dumps (hostname, username, session ids)
+.claude/
+audit_logs/*.json

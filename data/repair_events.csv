@@ -1,0 +1,7 @@
+event_id,unit_id,date,issue,status,detail
+R201,U2B,2026-10-03,Kitchen sink leak,reported,Tenant reported water pooling below the sink
+R202,U2B,2026-10-05,Kitchen sink leak,closed,Contractor replaced the drain seal
+R203,U2B,2026-10-20,Kitchen sink leak,reopened,Tenant reported water pooling in the same place
+R204,U2D,2026-10-18,Kitchen sink leak,reported,Tenant reported water dripping under the sink
+R205,U2D,2026-10-21,Kitchen sink leak,closed,Contractor tightened a supply fitting
+R206,U3A,2026-10-19,Heating failure,reported,Radiator stayed cold after thermostat adjustment
