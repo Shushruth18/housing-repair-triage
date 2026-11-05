@@ -15,3 +15,7 @@ outbound_log.jsonl
 # Machine-specific config and raw audit dumps (hostname, username, session ids)
 .claude/
 audit_logs/*.json
+
+# Local-only notes and helpers
+TEST-RESULTS.md
+tools/audit_summary.py

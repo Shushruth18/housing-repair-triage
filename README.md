@@ -5,8 +5,6 @@ A small, privacy-aware **RAG (retrieval-augmented generation) assistant** for a 
 - finds the matching rule in the team's repair procedure;
 - asks Claude for a short, **cited** answer about what happens next.
 
-It was also built as a test bed for **AgenticAudit**, a compliance monitor that watches an AI coding agent through Claude Code hooks. The findings are in [`TEST-RESULTS.md`](TEST-RESULTS.md).
-
 > All data in `data/` is fictional. Names and emails use `example.com`.
 
 ## Example
@@ -118,15 +116,6 @@ app.py              Streamlit page
 triage/             pipeline: load, redact, chunk, embed, store, retrieve, generate, outbound gate, CLI
 tests/              pytest suite
 data/               fictional tenants, repair events and procedure
-tools/              helpers for the AgenticAudit test (outbound verifier, audit summary)
-audit_logs/         console output of compliance runs A–D
-TEST-RESULTS.md     AgenticAudit compliance test write-up
+tools/              verify_outbound.py: shows what a run sent, with PII counts only
+audit_logs/         console output of example compliance runs A–D
 ```
-
-## AgenticAudit findings (short version)
-
-Four runs were made: a dry run, a redacted live run, a controlled leak and a repeat.
-- AgenticAudit rated all four the same: low risk, no PII.
-- It could see the command that ran, but not the HTTPS request the app made, so the controlled leak went unnoticed.
-
-See [`TEST-RESULTS.md`](TEST-RESULTS.md) for details.
